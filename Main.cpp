@@ -83,12 +83,12 @@ void Main() {
 
 	// parrotの座標、移動半径、x, yの差分等
 	Vec2 angleParrotPos(Scene::Center());
-    const int radius = 20000;
+    const int radius = 150;
     double delta = 0;
     double deltaDelta = 1.0;
     double angle = Math::Pi * delta / 180;
-    double cosDelta = Math::Sqrt(radius) * std::cos(angle);
-    double sinDelta = Math::Sqrt(radius) * std::sin(angle);
+    double cosDelta = radius * std::cos(angle);
+    double sinDelta = radius * std::sin(angle);
     Vec2 nomalParrotPos1(angleParrotPos.x - cosDelta, angleParrotPos.y - sinDelta);
 	Vec2 nomalParrotPos2(angleParrotPos.x + cosDelta, angleParrotPos.y + sinDelta);
     
@@ -119,8 +119,8 @@ void Main() {
         } 
         //差分で角度、座標を更新する
         angle = Math::Pi * delta / 180;
-        cosDelta = Math::Sqrt(radius) * std::cos(angle);
-        sinDelta = Math::Sqrt(radius) * std::sin(angle);
+        cosDelta = radius * std::cos(angle);
+        sinDelta = radius * std::sin(angle);
         nomalParrotPos1 = Vec2(angleParrotPos.x - cosDelta, angleParrotPos.y - sinDelta);
         nomalParrotPos2 = Vec2(angleParrotPos.x + cosDelta, angleParrotPos.y + sinDelta);
 	}
